@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=default target/startuphub0.0.1-SNAPSHOT.jar
