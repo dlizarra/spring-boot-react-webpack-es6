@@ -10,3 +10,4 @@ after_success:
 deploy:
   provider: heroku
   api_key: "60dffffb-8734-4e21-aef0-3db3f0ace717"
+  app: startup-hub
