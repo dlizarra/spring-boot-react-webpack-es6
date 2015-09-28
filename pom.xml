@@ -64,25 +64,24 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-	<plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <format>xml</format>
-                    <maxmem>256m</maxmem>
-                    <aggregate>true</aggregate>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.0.0</version>
-                <configuration>
-                    <repoToken>jdVzJ0hQ2pAUHvKuBegVONgi9s6N5YjhM</repoToken>
-                </configuration>
-            </plugin>
-        </plugins>
+			<plugin>
+        			<groupId>org.codehaus.mojo</groupId>
+                		<artifactId>cobertura-maven-plugin</artifactId>
+                		<version>2.7</version>
+                		<configuration>
+                			<format>xml</format>
+                			<maxmem>256m</maxmem>
+                    			<aggregate>true</aggregate>
+                		</configuration>
+        		 </plugin>
+        		 <plugin>
+                		<groupId>org.eluder.coveralls</groupId>
+                		<artifactId>coveralls-maven-plugin</artifactId>
+        		 <version>4.0.0</version>
+                		<configuration>
+                			<repoToken>jdVzJ0hQ2pAUHvKuBegVONgi9s6N5YjhM</repoToken>
+                		</configuration>
+        		 </plugin>
 		</plugins>
 	</build>
 
