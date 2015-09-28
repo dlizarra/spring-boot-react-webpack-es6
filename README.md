@@ -1,4 +1,4 @@
-# spring-boot
+# Startup Hub
 ![Heroku](http://heroku-badge.herokuapp.com/?app=startup-hub&root=h2console)
 
-Spring Boot sandbox app...
+Spring Boot sandbox app (in progress)
