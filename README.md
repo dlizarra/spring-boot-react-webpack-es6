@@ -5,4 +5,3 @@
 
 Spring Boot sandbox app
 
-In progress...  
