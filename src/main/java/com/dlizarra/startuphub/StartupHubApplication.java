@@ -25,7 +25,7 @@ public class StartupHubApplication extends SpringApplication {
         } else if (standaloneActive) {
             System.out.println("The default 'standalone' profile is active because no other profiles have been specified or "
             		+ "you specified the default profile explicitly. If you specified "
-            		+ "another active profile in application.yml file it it will be activated instead of default.");
+            		+ "a different active profile in application.yml file it it will be activated instead of default.");
         } else {
             throw new IllegalStateException("Unknown profiles specified. Please specify one of default, staging or production.");
         }
