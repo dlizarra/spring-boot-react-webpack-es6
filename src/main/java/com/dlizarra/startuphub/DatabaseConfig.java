@@ -14,8 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 
 @Configuration
-public class DatabaseConfig {	
-
+public class DatabaseConfig {
 
 	@Profile(StartupHubProfiles.STANDALONE)
 	@PropertySource("classpath:application-default.properties") // Not loaded by naming convention
