@@ -26,12 +26,12 @@ public class Position {
 	public enum Ids {
 		CREATOR(1), DEVELOPER(2);
 
-		private int id;
+		private Integer id;
 
-		private Ids(final int id) {
+		private Ids(final int Integer) {
 		}
 
-		public int getId() {
+		public Integer getId() {
 			return id;
 		}
 
