@@ -12,39 +12,38 @@ import org.springframework.core.env.Environment;
 
 import com.zaxxer.hikari.HikariDataSource;
 
-
 @Configuration
 public class DatabaseConfig {
 
 	@Profile(StartupHubProfiles.STANDALONE)
 	@PropertySource("classpath:application-default.properties") // Not loaded by naming convention
 	@Configuration
-    static class StandaloneDatabaseConfig {
-        @Bean
-        ServletRegistrationBean h2ConsoleServlet(){
-            ServletRegistrationBean servlet = new ServletRegistrationBean(new WebServlet(), "/h2console/*");        
-            return servlet;
-        }    
-        
-        @Bean
-        public DataSource dataSource(Environment env) {
-        	HikariDataSource ds = new HikariDataSource();    	
-        	ds.setJdbcUrl(env.getRequiredProperty("h2.jdbcurl"));
-        	ds.setUsername(env.getRequiredProperty("h2.username"));    	
-        	return ds;
-        }
-    }
-	
-	@Profile(StartupHubProfiles.STAGING)	
+	static class StandaloneDatabaseConfig {
+		@Bean
+		ServletRegistrationBean h2ConsoleServlet() {
+			final ServletRegistrationBean servlet = new ServletRegistrationBean(new WebServlet(), "/h2console/*");
+			return servlet;
+		}
+
+		@Bean
+		public DataSource dataSource(final Environment env) {
+			final HikariDataSource ds = new HikariDataSource();
+			ds.setJdbcUrl(env.getRequiredProperty("h2.jdbcurl"));
+			ds.setUsername(env.getRequiredProperty("h2.username"));
+			return ds;
+		}
+	}
+
+	@Profile(StartupHubProfiles.STAGING)
 	@Configuration
-    static class StagingDatabaseConfig {        
-        @Bean
-        public DataSource dataSource(Environment env) {
-        	HikariDataSource ds = new HikariDataSource();    	
-        	ds.setJdbcUrl(env.getRequiredProperty("psql.jdbcurl"));
-        	ds.setUsername(env.getRequiredProperty("psql.username"));    	
-        	return ds;
-        }
-    }
-	
+	static class StagingDatabaseConfig {
+		@Bean
+		public DataSource dataSource(final Environment env) {
+			final HikariDataSource ds = new HikariDataSource();
+			ds.setJdbcUrl(env.getRequiredProperty("psql.jdbcurl"));
+			ds.setUsername(env.getRequiredProperty("psql.username"));
+			return ds;
+		}
+	}
+
 }
