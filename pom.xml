@@ -50,7 +50,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>		
+		</dependency>
 		<!-- Database -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -98,6 +98,15 @@
 					<format>xml</format>
 					<maxmem>256m</maxmem>
 					<aggregate>true</aggregate>
+					<instrumentation>
+						<!-- Exclude JPA metamodel generated classes -->
+						<ignores>
+							<ignore>**/*_.java</ignore>
+						</ignores>
+						<excludes>							
+							<exclude>**/*_.class</exclude>
+						</excludes>
+					</instrumentation>
 				</configuration>
 			</plugin>
 			<!-- Coveralls -->
