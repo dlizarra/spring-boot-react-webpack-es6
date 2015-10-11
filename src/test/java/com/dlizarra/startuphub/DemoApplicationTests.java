@@ -31,7 +31,7 @@ public class DemoApplicationTests {
 	@Test
 	public void testPositionRepository() {
 		final Position p = positionRepository.findOne(1);
-		Assert.assertEquals("Creator", p.getName());
+		Assert.assertEquals(Position.Ids.CREATOR.getId(), p.getName());
 	}
 
 }
