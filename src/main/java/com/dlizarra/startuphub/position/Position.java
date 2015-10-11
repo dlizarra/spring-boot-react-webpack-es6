@@ -28,7 +28,7 @@ public class Position {
 
 		private Integer id;
 
-		private Ids(final int Integer) {
+		private Ids(final Integer id) {
 		}
 
 		public Integer getId() {
