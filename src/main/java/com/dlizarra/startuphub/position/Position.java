@@ -17,12 +17,14 @@ public class Position {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
 	private String name;
 
 	@OneToMany(mappedBy = "pk.position")
 	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
+	/**
+	 * Exposes the set of valid id's in the {@link Position} lookup table. Needs to be kept in sync with the database.
+	 */
 	public enum Ids {
 		CREATOR(1), DEVELOPER(2);
 
@@ -34,7 +36,6 @@ public class Position {
 		public Integer getId() {
 			return id;
 		}
-
 	}
 
 	public Integer getId() {

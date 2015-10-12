@@ -18,7 +18,7 @@ import ma.glasnost.orika.metadata.ClassMapBuilder;
 /**
  * Orika mapper exposed as a Spring Bean. It contains the configuration for the mapper factory and factory builder. It
  * will scan the Spring application context searching for mappers and converters to register them into the factory. To
- * use it we just need to autowire it into our class.
+ * use it just autowire it into a class.
  * 
  * @author dlizarra
  */
@@ -32,18 +32,12 @@ public class OrikaBeanMapper extends ConfigurableMapper implements ApplicationCo
 		super(false);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void configure(final MapperFactory factory) {
 		this.factory = factory;
 		addAllSpringBeans(applicationContext);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void configureFactoryBuilder(final DefaultMapperFactory.Builder factoryBuilder) {
 		// Nothing to configure for now

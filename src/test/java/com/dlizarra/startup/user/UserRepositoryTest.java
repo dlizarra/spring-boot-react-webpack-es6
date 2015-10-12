@@ -16,7 +16,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 	private UserRepository userRepository;
 
 	@Test
-	public void getProjectUserPositions_TwoEntitiesGiven_ShouldReturnTwoResults() {
+	public void getProjectUserPositions_TwoEntitiesInDb_ShouldReturnTwoResults() {
 		final User user = userRepository.findOne(1).get();
 		Assert.assertEquals(2, user.getProjectUserPositions().size());
 	}

@@ -14,10 +14,11 @@ import org.springframework.data.repository.NoRepositoryBean;
 @NoRepositoryBean
 public interface CustomJpaRepository<T, ID extends Serializable> extends CustomCrudRepository<T, ID> {
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns all instances of the type sorted by the type.
 	 * 
-	 * @see org.springframework.data.repository.PagingAndSortingRepository#findAll(org.springframework.data.domain.Sort)
+	 * @param A {@link Sort} object applied to the returned elements list.
+	 * @return ordered list
 	 */
 	List<T> findAll(Sort sort);
 
@@ -29,27 +30,17 @@ public interface CustomJpaRepository<T, ID extends Serializable> extends CustomC
 	 */
 	Page<T> findAll(Pageable pageable);
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns all instances of the type.
 	 * 
-	 * @see org.springframework.data.repository.CrudRepository#findAll()
+	 * @return
 	 */
 	@Override
 	List<T> findAll();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.data.repository.CrudRepository#findAll(java.lang.Iterable)
-	 */
 	@Override
 	List<T> findAll(Iterable<ID> ids);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.data.repository.CrudRepository#save(java.lang.Iterable)
-	 */
 	@Override
 	<S extends T> List<S> save(Iterable<S> entities);
 
@@ -84,8 +75,7 @@ public interface CustomJpaRepository<T, ID extends Serializable> extends CustomC
 	 * populated on demand only when it's needed. Used for saving the cost of bringing a heavy object from database. The
 	 * implementation uses JPA's EntityManager.getReference method.
 	 * 
-	 * @param id
-	 *            must not be {@literal null}.
+	 * @param id must not be {@literal null}.
 	 * @return a proxy object of the entity with the given identifier.
 	 * @see EntityManager#getReference(Class, Object)
 	 */

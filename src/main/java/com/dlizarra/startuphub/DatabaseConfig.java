@@ -23,8 +23,7 @@ public class DatabaseConfig {
 		ServletRegistrationBean h2ConsoleServlet() {
 			/* Since Spring Boot 1.3.0 M3, with dev-tools enabled, a servlet mapping to /h2-console would already be
 			 * pre-configured if we didn't provide this one (ours gets registered earlier) */
-			final ServletRegistrationBean servlet = new ServletRegistrationBean(new WebServlet(), "/h2console/*");
-			return servlet;
+			return new ServletRegistrationBean(new WebServlet(), "/h2console/*");
 		}
 
 		@Bean
