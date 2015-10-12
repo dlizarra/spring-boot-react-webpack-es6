@@ -35,8 +35,8 @@ public class ProjectUserPosition {
 		return pk.getUser();
 	}
 
-	public void setUser(final User user) {
-		pk.setUser(user);
+	public void setUser(final User User) {
+		pk.setUser(User);
 	}
 
 	@Transient

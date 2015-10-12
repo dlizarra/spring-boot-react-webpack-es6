@@ -1,8 +1,8 @@
 package com.dlizarra.startuphub.project;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +14,14 @@ import javax.persistence.OneToMany;
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false)
 	private String name;
 
-	@OneToMany(mappedBy = "pk.project", cascade = CascadeType.ALL)
-	private Set<ProjectUserPosition> projectUserPositions;
+	@OneToMany(mappedBy = "pk.project")
+	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
 	public Integer getId() {
 		return id;

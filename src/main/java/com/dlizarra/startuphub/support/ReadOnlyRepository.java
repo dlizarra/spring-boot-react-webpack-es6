@@ -1,4 +1,4 @@
-package com.dlizarra.startuphub.core;
+package com.dlizarra.startuphub.support;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
 package com.dlizarra.startuphub.position;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,13 +15,13 @@ import com.dlizarra.startuphub.project.ProjectUserPosition;
 public class Position {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String name;
 
-	@OneToMany(mappedBy = "pk.position", cascade = CascadeType.ALL)
-	private Set<ProjectUserPosition> projectUserPositions;
+	@OneToMany(mappedBy = "pk.position")
+	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
 	public enum Ids {
 		CREATOR(1), DEVELOPER(2);

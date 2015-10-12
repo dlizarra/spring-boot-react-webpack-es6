@@ -1,29 +1,32 @@
 package com.dlizarra.startuphub.user;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.dlizarra.startuphub.project.ProjectUserPosition;
 
 @Entity
+@Table(name = "users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false, unique = true)
 	private String username;
 
-	@OneToMany(mappedBy = "pk.user", cascade = CascadeType.ALL)
-	private Set<ProjectUserPosition> projectUserPositions;
+	@OneToMany(mappedBy = "pk.user", fetch = FetchType.EAGER)
+	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
 	public Integer getId() {
 		return id;
