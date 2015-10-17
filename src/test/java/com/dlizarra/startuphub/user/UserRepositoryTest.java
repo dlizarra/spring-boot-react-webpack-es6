@@ -13,10 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dlizarra.startuphub.project.ProjectUserPosition;
 import com.dlizarra.startuphub.support.AbstractWebIntegrationTest;
-import com.dlizarra.startuphub.user.User;
-import com.dlizarra.startuphub.user.UserRepository;
 
-@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/user.sql" })
+@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/user.sql" })
 public class UserRepositoryTest extends AbstractWebIntegrationTest {
 
 	@Autowired
@@ -65,7 +63,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 		assertThat(user1.getId()).isEqualTo(1);
 	}
 
-	@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/user.sql" })
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/user.sql" })
 	@Test
 	public void findAll_TwoUsersinDb_ShouldReturnTwoUsers() {
 		// act

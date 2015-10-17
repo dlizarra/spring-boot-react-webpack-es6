@@ -60,7 +60,7 @@ public class ProjectRepositoryTest extends AbstractIntegrationTest {
 		assertThat(p.getId()).isEqualTo(1);
 	}
 
-	@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/project.sql" })
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/project.sql" })
 	@Test
 	public void findAll_TwoProjectsInDb_ShouldReturnTwoProjects() {
 		// act

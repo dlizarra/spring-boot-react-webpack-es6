@@ -41,7 +41,7 @@ public class ProjectUserPositionRepositoryTest extends AbstractWebIntegrationTes
 		newPup.setPosition(posDev);
 	}
 
-	@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/project-user-position.sql" })
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/project-user-position.sql" })
 	@Test
 	public void save_EntityGiven_ShouldSaveEntity() {
 		// act
@@ -51,7 +51,7 @@ public class ProjectUserPositionRepositoryTest extends AbstractWebIntegrationTes
 		assertThat(userFromDb.getProjectUserPositions().size()).isEqualTo(2);
 	}
 
-	@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/project-user-position.sql" })
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/project-user-position.sql" })
 	@Test
 	public void delete_EntityGiven_ShouldDeleteEntity() {
 		// arrange
