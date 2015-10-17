@@ -1,6 +1,7 @@
 package com.dlizarra.startuphub.support;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +25,7 @@ public interface ReadOnlyRepository<T, ID extends Serializable> extends Reposito
 	 *
 	 * @return
 	 */
-	Iterable<T> findAll();
+	List<T> findAll();
 
 	/**
 	 * Returns all instances of the type sorted by the type.
@@ -32,7 +33,7 @@ public interface ReadOnlyRepository<T, ID extends Serializable> extends Reposito
 	 * @param A {@link Sort} object applied to the returned elements list.
 	 * @return sorted list
 	 */
-	Iterable<T> findAll(Sort sort);
+	List<T> findAll(Sort sort);
 
 	/**
 	 * Returns a Page of entities meeting the paging restriction provided in the Pageable object.

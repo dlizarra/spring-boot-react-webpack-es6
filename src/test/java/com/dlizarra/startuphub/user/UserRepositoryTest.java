@@ -1,4 +1,4 @@
-package com.dlizarra.startup.user;
+package com.dlizarra.startuphub.user;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dlizarra.startup.support.AbstractWebIntegrationTest;
 import com.dlizarra.startuphub.project.ProjectUserPosition;
+import com.dlizarra.startuphub.support.AbstractWebIntegrationTest;
 import com.dlizarra.startuphub.user.User;
 import com.dlizarra.startuphub.user.UserRepository;
 
@@ -23,7 +23,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 	private UserRepository userRepository;
 
 	@Test
-	public void save_EntityGiven_ShouldSaveEntity() {
+	public void save_UserGiven_ShouldSaveUser() {
 		// arrange
 		final User userStan = new User();
 		userStan.setUsername("stan");
@@ -46,7 +46,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 	}
 
 	@Test
-	public void findOne_ExistingIdGiven_ShouldReturnEntity() {
+	public void findOne_ExistingIdGiven_ShouldReturnUser() {
 		// act
 		final Optional<User> userOpt = userRepository.findOne(1);
 		assertThat(userOpt.isPresent()).isTrue();
@@ -67,7 +67,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 
 	@Sql({ "classpath:/sql/reset-db.sql", "classpath:/sql/user.sql" })
 	@Test
-	public void findAll_TwoEntitiesinDb_ShouldReturnTwoEntities() {
+	public void findAll_TwoUsersinDb_ShouldReturnTwoUsers() {
 		// act
 		final List<User> allUsers = userRepository.findAll();
 		// assert
