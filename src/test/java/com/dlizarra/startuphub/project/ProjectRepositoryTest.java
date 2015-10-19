@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dlizarra.startuphub.project.support.ProjectRepository;
 import com.dlizarra.startuphub.support.AbstractIntegrationTest;
 
 public class ProjectRepositoryTest extends AbstractIntegrationTest {

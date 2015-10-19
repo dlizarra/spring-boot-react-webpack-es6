@@ -1,7 +1,6 @@
 package com.dlizarra.startup.position;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -53,11 +52,11 @@ public class PositionServiceTest {
 		positions.add(p1);
 		positions.add(p2);
 		when(positionRepository.findAll()).thenReturn(positions);
-		when(positionRepository.findOne(anyInt())).thenReturn(p1);
+		when(positionRepository.findOne(1)).thenReturn(p1);
 	}
 
 	@Test
-	public void testFindAll() {
+	public void testFindAll_TwoPositionsInDb_ShouldReturnTwoPositions() {
 		// act
 		final List<PositionDto> positions = positionService.findAll();
 		// assert
@@ -65,7 +64,7 @@ public class PositionServiceTest {
 	}
 
 	@Test
-	public void testGetPosition() {
+	public void testGetPosition_ExistingIdGiven_ShouldReturnOnePosition() {
 		// act
 		final PositionDto p = positionService.getPosition(Position.ID.CREATOR);
 		// assert

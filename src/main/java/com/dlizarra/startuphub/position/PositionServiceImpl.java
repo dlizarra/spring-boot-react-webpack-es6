@@ -23,11 +23,11 @@ public class PositionServiceImpl implements PositionService {
 
 	@Override
 	public List<PositionDto> findAll() {
-		final List<PositionDto> positions = new ArrayList<PositionDto>();
-		for (final Position pos : positionRepository.findAll()) {
-			positions.add(mapper.map(pos, PositionDto.class));
-		}
-		return positions;
+		final List<PositionDto> allPositionDtos = new ArrayList<PositionDto>();
+		final List<Position> allPositions = positionRepository.findAll();
+		allPositions.forEach(x -> allPositionDtos.add(mapper.map(x, PositionDto.class)));
+
+		return allPositionDtos;
 	}
 
 	@Override

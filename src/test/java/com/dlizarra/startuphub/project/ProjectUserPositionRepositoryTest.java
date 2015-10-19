@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.dlizarra.startuphub.position.Position;
-import com.dlizarra.startuphub.project.support.ProjectUserPositionRepository;
 import com.dlizarra.startuphub.support.AbstractWebIntegrationTest;
 import com.dlizarra.startuphub.user.User;
 import com.dlizarra.startuphub.user.UserRepository;
