@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.dlizarra.startuphub.CustomUserDetails;
 import com.dlizarra.startuphub.project.ProjectUserPosition;
 
 @Entity
@@ -27,6 +28,18 @@ public class User {
 
 	@OneToMany(mappedBy = "pk.user", fetch = FetchType.EAGER)
 	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
+
+	public User() {
+	}
+
+	/**
+	 * Constructor used exclusively by {@link CustomUserDetails}}
+	 * @param user
+	 */
+	public User(final User user) {
+		this.id = user.id;
+		this.username = user.username;
+	}
 
 	public Integer getId() {
 		return id;

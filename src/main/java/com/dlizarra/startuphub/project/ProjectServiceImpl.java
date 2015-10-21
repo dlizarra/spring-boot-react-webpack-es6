@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.dlizarra.startuphub.support.OrikaBeanMapper;
+import com.dlizarra.startuphub.support.orika.OrikaBeanMapper;
 
 public class ProjectServiceImpl implements ProjectService {
 

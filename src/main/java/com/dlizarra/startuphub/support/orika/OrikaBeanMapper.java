@@ -1,4 +1,4 @@
-package com.dlizarra.startuphub.support;
+package com.dlizarra.startuphub.support.orika;
 
 import java.util.Map;
 

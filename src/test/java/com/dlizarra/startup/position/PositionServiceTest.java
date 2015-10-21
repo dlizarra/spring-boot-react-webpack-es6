@@ -23,7 +23,7 @@ import com.dlizarra.startuphub.position.Position;
 import com.dlizarra.startuphub.position.PositionDto;
 import com.dlizarra.startuphub.position.PositionRepository;
 import com.dlizarra.startuphub.position.PositionServiceImpl;
-import com.dlizarra.startuphub.support.OrikaBeanMapper;
+import com.dlizarra.startuphub.support.orika.OrikaBeanMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = { AppConfig.class, DatabaseConfig.class })

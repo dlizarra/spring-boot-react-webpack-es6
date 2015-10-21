@@ -1,7 +1,11 @@
 package com.dlizarra.startuphub.user;
 
-import com.dlizarra.startuphub.support.CustomJpaRepository;
+import java.util.Optional;
+
+import com.dlizarra.startuphub.support.jpa.CustomJpaRepository;
 
 public interface UserRepository extends CustomJpaRepository<User, Integer> {
+
+	Optional<User> findByUsername(String username);
 
 }

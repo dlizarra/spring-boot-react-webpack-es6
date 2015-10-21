@@ -1,4 +1,4 @@
-package com.dlizarra.startuphub.support;
+package com.dlizarra.startuphub.support.jpa;
 
 import java.io.Serializable;
 import java.util.List;
