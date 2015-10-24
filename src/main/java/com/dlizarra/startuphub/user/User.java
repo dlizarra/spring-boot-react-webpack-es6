@@ -12,8 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.dlizarra.startuphub.CustomUserDetails;
 import com.dlizarra.startuphub.project.ProjectUserPosition;
+import com.dlizarra.startuphub.role.Role;
 
 @Entity
 @Table(name = "users")
@@ -25,6 +28,15 @@ public class User {
 
 	@Column(nullable = false, unique = true)
 	private String username;
+
+	@Column(nullable = false)
+	private String password;
+
+	@Column
+	private boolean enabled;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	private Set<Role> roles;
 
 	@OneToMany(mappedBy = "pk.user", fetch = FetchType.EAGER)
 	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
@@ -55,6 +67,30 @@ public class User {
 
 	public void setUsername(final String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(final String password) {
+		this.password = new BCryptPasswordEncoder().encode(password);
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(final boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(final Set<Role> roles) {
+		this.roles = roles;
 	}
 
 	public Set<ProjectUserPosition> getProjectUserPositions() {

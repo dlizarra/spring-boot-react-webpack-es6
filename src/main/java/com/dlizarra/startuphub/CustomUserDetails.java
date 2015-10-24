@@ -1,49 +1,52 @@
 package com.dlizarra.startuphub;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.dlizarra.startuphub.user.User;
 
 @SuppressWarnings("serial")
-// public class CustomUserDetails extends User implements UserDetails {
-public class CustomUserDetails extends User {
-	//
-	// public CustomUserDetails(final User user) {
-	// super(user);
-	// }
-	//
-	// @Override
-	// public Collection<? extends GrantedAuthority> getAuthorities() {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
-	// @Override
-	// public String getPassword() {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
-	// @Override
-	// public boolean isAccountNonExpired() {
-	// // TODO Auto-generated method stub
-	// return false;
-	// }
-	//
-	// @Override
-	// public boolean isAccountNonLocked() {
-	// // TODO Auto-generated method stub
-	// return false;
-	// }
-	//
-	// @Override
-	// public boolean isCredentialsNonExpired() {
-	// // TODO Auto-generated method stub
-	// return false;
-	// }
-	//
-	// @Override
-	// public boolean isEnabled() {
-	// // TODO Auto-generated method stub
-	// return false;
-	// }
+public class CustomUserDetails extends User implements UserDetails {
+
+	public CustomUserDetails(final User user) {
+		super(user);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		getRoles().stream()
+			.map(role -> new SimpleGrantedAuthority(role.getRolename().name()))
+			.collect(Collectors.toList());
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		return super.getPassword();
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return super.isEnabled();
+	}
 
 }

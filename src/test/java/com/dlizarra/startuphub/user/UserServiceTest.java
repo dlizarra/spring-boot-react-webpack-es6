@@ -9,22 +9,16 @@ import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.dlizarra.startuphub.AppConfig;
-import com.dlizarra.startuphub.DatabaseConfig;
+import com.dlizarra.startuphub.support.AbstractUnitTest;
 import com.dlizarra.startuphub.support.orika.OrikaBeanMapper;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { AppConfig.class, DatabaseConfig.class })
-public class UserServiceTest {
+public class UserServiceTest extends AbstractUnitTest {
 
 	@Mock
 	private UserRepository userRepository;

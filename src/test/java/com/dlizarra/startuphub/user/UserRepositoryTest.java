@@ -25,6 +25,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 		// arrange
 		final User userStan = new User();
 		userStan.setUsername("stan");
+		userStan.setPassword("stan");
 		// act
 		userRepository.save(userStan);
 		// assert
@@ -37,6 +38,7 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 		final User user = new User();
 		user.setId(2);
 		user.setUsername("albert");
+		user.setPassword("albert");
 		// act
 		final User updatedUser = userRepository.save(user);
 		// assert

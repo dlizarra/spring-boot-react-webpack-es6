@@ -15,15 +15,15 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class DatabaseConfig {
 
-	@Profile(StartupHubProfiles.STANDALONE)
+	@Profile({ StartupHubProfiles.STANDALONE, StartupHubProfiles.TEST })
 	@PropertySource("classpath:application-default.properties") // Not loaded by naming convention
 	@Configuration
 	static class StandaloneDatabaseConfig {
 		@Bean
 		ServletRegistrationBean h2ConsoleServlet() {
-			/* Since Spring Boot 1.3.0 M3, with dev-tools enabled, it's not necessary to define a servlet
-			 * for the H2 web console since a servlet mapping to /h2-console would already be
-			 * pre-configured by Boot if we didn't provide this one (ours gets registered earlier) */
+			/* Since Spring Boot 1.3.0 M3, with dev-tools enabled, it's not necessary to define a servlet for the H2 web
+			 * console since a servlet mapping to /h2-console would already be pre-configured by Boot if we didn't
+			 * provide this one (ours gets registered earlier) */
 			return new ServletRegistrationBean(new WebServlet(), "/h2console/*");
 		}
 
