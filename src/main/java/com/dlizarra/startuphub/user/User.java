@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.dlizarra.startuphub.CustomUserDetails;
-import com.dlizarra.startuphub.project.ProjectUserPosition;
 import com.dlizarra.startuphub.role.Role;
 
 @Entity
@@ -50,9 +49,6 @@ public class User {
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private Set<Role> roles = new HashSet<Role>();
-
-	@OneToMany(mappedBy = "pk.user", fetch = FetchType.EAGER)
-	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
 	public User() {
 	}
@@ -115,14 +111,6 @@ public class User {
 
 	public void setRoles(final Set<Role> roles) {
 		this.roles = roles;
-	}
-
-	public Set<ProjectUserPosition> getProjectUserPositions() {
-		return projectUserPositions;
-	}
-
-	public void setProjectUserPositions(final Set<ProjectUserPosition> projectUserPositions) {
-		this.projectUserPositions = projectUserPositions;
 	}
 
 	public LocalDateTime getCreationTime() {

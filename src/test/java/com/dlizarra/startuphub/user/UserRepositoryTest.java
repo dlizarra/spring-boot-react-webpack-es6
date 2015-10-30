@@ -4,14 +4,12 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dlizarra.startuphub.project.ProjectUserPosition;
 import com.dlizarra.startuphub.support.AbstractWebIntegrationTest;
 
 @Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/user.sql" })
@@ -72,17 +70,6 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 		final List<User> allUsers = userRepository.findAll();
 		// assert
 		assertThat(allUsers.size()).isEqualTo(2);
-	}
-
-	@Test
-	public void getProjectUserPositions_TwoEntitiesInDb_ShouldReturnTwoResults() {
-		// arrange
-		final User user = userRepository.findOne(1).get();
-		// act
-		final Set<ProjectUserPosition> projectUserPositions = user.getProjectUserPositions();
-		// assert
-		assertThat(projectUserPositions).isNotNull();
-		assertThat(projectUserPositions.size()).isEqualTo(2);
 	}
 
 }

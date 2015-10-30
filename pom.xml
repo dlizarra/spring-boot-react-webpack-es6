@@ -75,30 +75,16 @@
 			<artifactId>orika-core</artifactId>
 			<version>${orika-core.version}</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj-core.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.goldmansachs</groupId>
-			<artifactId>gs-collections</artifactId>
-			<version>5.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-core</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.hazelcast</groupId>
-			<artifactId>hazelcast</artifactId>
-		</dependency> 
 	</dependencies>
 	
 	<build>

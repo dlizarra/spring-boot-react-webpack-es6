@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dlizarra.startuphub.AppConfig;
 import com.dlizarra.startuphub.DatabaseConfig;
+import com.dlizarra.startuphub.SecurityConfig;
 import com.dlizarra.startuphub.StartupHubProfiles;
-import com.hazelcast.config.SecurityConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = { AppConfig.class, DatabaseConfig.class, SecurityConfig.class })

@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.validation.constraints.Size;
 
-import com.dlizarra.startuphub.project.ProjectUserPosition;
 import com.dlizarra.startuphub.role.Role;
 
 public class UserDto {
@@ -26,8 +25,6 @@ public class UserDto {
 
 	private Set<Role> roles;
 
-	private Set<ProjectUserPosition> projectUserPositions;
-
 	public LocalDateTime getCreationTime() {
 		return creationTime;
 	}
@@ -42,14 +39,6 @@ public class UserDto {
 
 	public void setModificationTime(final LocalDateTime modificationTime) {
 		this.modificationTime = modificationTime;
-	}
-
-	public Set<ProjectUserPosition> getProjectUserPositions() {
-		return projectUserPositions;
-	}
-
-	public void setProjectUserPositions(final Set<ProjectUserPosition> projectUserPositions) {
-		this.projectUserPositions = projectUserPositions;
 	}
 
 	public String getPassword() {

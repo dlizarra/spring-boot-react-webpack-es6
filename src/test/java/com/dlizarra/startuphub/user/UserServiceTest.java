@@ -14,10 +14,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dlizarra.startuphub.support.AbstractUnitTest;
 import com.dlizarra.startuphub.support.orika.OrikaBeanMapper;
 
+@Transactional
 public class UserServiceTest extends AbstractUnitTest {
 
 	@Mock

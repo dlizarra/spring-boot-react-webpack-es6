@@ -7,19 +7,3 @@ CREATE TABLE "user" (
 	"id" SERIAL NOT NULL UNIQUE, 
 	"username" CHARACTER VARYING( 2044 ) NOT NULL,
  	PRIMARY KEY ( "id" ));
- 
-CREATE TABLE "position" ( 
-	"id" SERIAL NOT NULL UNIQUE, 
-	"name" CHARACTER VARYING( 2044 ) NOT NULL,
- 	PRIMARY KEY ( "id" ),
- 	CONSTRAINT "unique_name" UNIQUE("name"));
- 
-CREATE TABLE "project2user2position" ( 
-	"project_id" INTEGER NOT NULL, 
-	"user_id" INTEGER NOT NULL, 
-	"position_id" INTEGER NOT NULL,
- 	PRIMARY KEY ( "project_id","user_id","position_id" ),
- 	FOREIGN KEY ("project_id") REFERENCES "project"("id"),
- 	FOREIGN KEY ("user_id") REFERENCES "user"("id"),
- 	FOREIGN KEY ("position_id") REFERENCES "user"("id"),
- 	);

@@ -6,5 +6,10 @@ public interface ProjectService {
 
 	List<ProjectDto> findAll();
 
+	/**
+	 */
 	ProjectDto getProject(Integer id);
+
+	ProjectDto createProject(ProjectDto dto, Integer creatorId);
+
 }

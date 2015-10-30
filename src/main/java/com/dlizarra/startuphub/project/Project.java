@@ -1,16 +1,12 @@
 package com.dlizarra.startuphub.project;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
@@ -35,9 +31,6 @@ public class Project {
 
 	@Column
 	private LocalDateTime modificationTime;
-
-	@OneToMany(mappedBy = "pk.project", fetch = FetchType.EAGER)
-	private Set<ProjectUserPosition> projectUserPositions = new HashSet<ProjectUserPosition>();
 
 	@PrePersist
 	public void prePersist() {
@@ -87,14 +80,6 @@ public class Project {
 
 	public void setModificationTime(final LocalDateTime modificationTime) {
 		this.modificationTime = modificationTime;
-	}
-
-	public Set<ProjectUserPosition> getProjectUserPositions() {
-		return projectUserPositions;
-	}
-
-	public void setProjectUserPositions(final Set<ProjectUserPosition> projectUserPositions) {
-		this.projectUserPositions = projectUserPositions;
 	}
 
 	@Override

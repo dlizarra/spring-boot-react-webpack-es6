@@ -1,7 +1,6 @@
 package com.dlizarra.startuphub.project;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 import javax.validation.constraints.Size;
 
@@ -18,8 +17,6 @@ public class ProjectDto {
 	private LocalDateTime creationTime;
 
 	private LocalDateTime modificationTime;
-
-	private Set<ProjectUserPosition> projectUserPositions;
 
 	public String getDescription() {
 		return description;
@@ -43,14 +40,6 @@ public class ProjectDto {
 
 	public void setModificationTime(final LocalDateTime modificationTime) {
 		this.modificationTime = modificationTime;
-	}
-
-	public Set<ProjectUserPosition> getProjectUserPositions() {
-		return projectUserPositions;
-	}
-
-	public void setProjectUserPositions(final Set<ProjectUserPosition> projectUserPositions) {
-		this.projectUserPositions = projectUserPositions;
 	}
 
 	public Integer getId() {
