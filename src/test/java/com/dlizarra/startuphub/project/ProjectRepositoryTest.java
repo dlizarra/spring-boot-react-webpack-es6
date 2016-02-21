@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dlizarra.startuphub.support.AbstractIntegrationTest;
+import com.dlizarra.startuphub.support.AbstractWebIntegrationTest;
 
-public class ProjectRepositoryTest extends AbstractIntegrationTest {
+public class ProjectRepositoryTest extends AbstractWebIntegrationTest {
 
 	@Autowired
 	private ProjectRepository projectRepository;
@@ -28,16 +28,18 @@ public class ProjectRepositoryTest extends AbstractIntegrationTest {
 		assertThat(project.getId()).isNotNull();
 	}
 
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/project.sql" })
 	@Test
 	public void update_ExistingProjectGiven_ShouldUpdateProject() {
 		// arrange
 		final Project p = new Project();
 		p.setId(2);
-		p.setName("Project2");
+		p.setName("Project updated");
 		// act
 		final Project updatedProject = projectRepository.save(p);
 		// assert
-		assertThat(updatedProject).isEqualTo(p);
+		assertThat(updatedProject.getName()).isEqualTo(p.getName());
+		assertThat(updatedProject.getId()).isEqualTo(p.getId());
 	}
 
 	@Test
@@ -66,6 +68,15 @@ public class ProjectRepositoryTest extends AbstractIntegrationTest {
 		final List<Project> allProjects = projectRepository.findAll();
 		// assert
 		assertThat(allProjects.size()).isEqualTo(2);
+	}
+
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/project.sql" })
+	@Test
+	public void delete_ExistingIdGiven_ShouldDeleteProject() {
+		// act
+		projectRepository.delete(2);
+		// assert
+		assertThat(projectRepository.findAll().size()).isEqualTo(1);
 	}
 
 }

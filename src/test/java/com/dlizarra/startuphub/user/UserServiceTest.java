@@ -1,6 +1,7 @@
 package com.dlizarra.startuphub.user;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dlizarra.startuphub.support.AbstractUnitTest;
@@ -44,7 +46,7 @@ public class UserServiceTest extends AbstractUnitTest {
 		final List<User> users = new ArrayList<User>();
 		users.add(u1);
 		users.add(u2);
-		when(userRepository.findAll()).thenReturn(users);
+		when(userRepository.findAll(any(Sort.class))).thenReturn(users);
 		when(userRepository.findOne(1)).thenReturn(Optional.of(u1));
 		when(userRepository.findOne(500)).thenReturn(Optional.empty());
 
@@ -53,7 +55,7 @@ public class UserServiceTest extends AbstractUnitTest {
 	@Test
 	public void testFindAll_TwoUsersInDb_ShouldReturnTwoUsers() {
 		// act
-		final List<UserDto> users = userService.findAll();
+		final List<UserDto> users = userService.getUsers();
 		// assert
 		assertThat(users.size()).isEqualTo(2);
 	}

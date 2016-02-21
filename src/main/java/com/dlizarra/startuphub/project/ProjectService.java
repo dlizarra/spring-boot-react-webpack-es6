@@ -4,12 +4,16 @@ import java.util.List;
 
 public interface ProjectService {
 
-	List<ProjectDto> findAll();
+	ProjectDto createProject(ProjectDto dto, Integer creatorId);
 
-	/**
-	 */
+	void updateProject(ProjectDto project);
+
+	void deleteProject(Integer id);
+
 	ProjectDto getProject(Integer id);
 
-	ProjectDto createProject(ProjectDto dto, Integer creatorId);
+	List<ProjectDto> getProjects();
+
+	public void addMember(Integer projectId, Integer userId);
 
 }

@@ -12,6 +12,15 @@ import javax.persistence.ManyToOne;
 
 import com.dlizarra.startuphub.user.User;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@EqualsAndHashCode(exclude = { "id", "user" })
+@ToString
+@Getter
+@Setter
 @Entity
 public class Role {
 
@@ -26,29 +35,4 @@ public class Role {
 	@JoinColumn(name = "user_id", nullable = false)
 	@ManyToOne
 	private User user;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(final Integer id) {
-		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(final User user) {
-		this.user = user;
-	}
-
-	public RoleName getRolename() {
-		return rolename;
-	}
-
-	public void setRolename(final RoleName rolename) {
-		this.rolename = rolename;
-	}
-
 }

@@ -18,10 +18,10 @@ public class CustomUserDetails extends User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		getRoles().stream()
-			.map(role -> new SimpleGrantedAuthority(role.getRolename().name()))
+		return getRoles().stream()
+			.map(role -> new SimpleGrantedAuthority("SSSSS"))
 			.collect(Collectors.toList());
-		return null;
+
 	}
 
 	@Override
@@ -31,17 +31,17 @@ public class CustomUserDetails extends User implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override

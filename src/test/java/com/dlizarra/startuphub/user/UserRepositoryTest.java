@@ -72,4 +72,13 @@ public class UserRepositoryTest extends AbstractWebIntegrationTest {
 		assertThat(allUsers.size()).isEqualTo(2);
 	}
 
+	@Sql({ "classpath:/sql/cleanup.sql", "classpath:/sql/user.sql" })
+	@Test
+	public void delete_ExistingIdGiven_ShouldDeleteUser() {
+		// act
+		userRepository.delete(2);
+		// assert
+		assertThat(userRepository.findAll().size()).isEqualTo(1);
+	}
+
 }

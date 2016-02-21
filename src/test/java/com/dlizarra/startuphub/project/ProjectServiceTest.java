@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dlizarra.startuphub.support.AbstractUnitTest;
@@ -51,7 +52,7 @@ public class ProjectServiceTest extends AbstractUnitTest {
 		final List<Project> projects = new ArrayList<Project>();
 		projects.add(p1);
 		projects.add(p2);
-		when(projectRepository.findAll()).thenReturn(projects);
+		when(projectRepository.findAll(any(Sort.class))).thenReturn(projects);
 		when(projectRepository.findOne(1)).thenReturn(Optional.of(p1));
 		when(projectRepository.findOne(5)).thenReturn(Optional.empty());
 		when(projectRepository.findOne(199)).thenReturn(Optional.of(p1));
@@ -66,11 +67,11 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	}
 
 	@Test
-	public void testfindAll_TwoProjectsInDb_ShouldReturnTwoProjects() {
+	public void testgetProjects_TwoProjectsInDb_ShouldReturnTwoProjects() {
 		// act
-		final List<ProjectDto> allProjects = projectService.findAll();
+		final List<ProjectDto> projects = projectService.getProjects();
 		// assert
-		assertThat(allProjects.size()).isEqualTo(2);
+		assertThat(projects.size()).isEqualTo(2);
 
 	}
 
@@ -88,7 +89,9 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	}
 
 	@Test
-	public void testCreateProject() {
+	public void testCreateProject_ProjectGiven_ShouldSaveProject() {
+		// TODO mock userrepository for creatorId 1, otherwise it's throwing a nullpointer
+
 		// arrange
 		final ProjectDto savedDto = new ProjectDto();
 		savedDto.setName("Project created");
@@ -98,5 +101,13 @@ public class ProjectServiceTest extends AbstractUnitTest {
 		// assert
 		assertThat(dto.getId()).isEqualTo(199);
 	}
+
+	// @Test
+	// public void testDeleteProject_ValidIdGiven_ShouldDeleteProject(){
+	// // act
+	// projectService.deleteProject(2);
+	// // assert
+	// assertThat()
+	// }
 
 }

@@ -1,3 +1,5 @@
 delete from "role";
-delete from "users";
+delete from "project2users";
 delete from "project";
+delete from "users";
+

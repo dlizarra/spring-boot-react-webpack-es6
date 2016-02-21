@@ -18,15 +18,13 @@ public class StartupHubApplication extends SpringApplication {
 		final boolean productionActive = environment.acceptsProfiles(StartupHubProfiles.PRODUCTION);
 
 		if (stagingActive && productionActive) {
-			throw new IllegalStateException("Cannot active staging and production profiles at the same time");
+			throw new IllegalStateException("Cannot activate staging and production profiles at the same time.");
 		} else if (productionActive || stagingActive) {
-			System.out.println("Activating "
-					+ (productionActive ? StartupHubProfiles.PRODUCTION : StartupHubProfiles.STAGING) + " profile");
+			System.out.println("Activating " +
+					(productionActive ? StartupHubProfiles.PRODUCTION : StartupHubProfiles.STAGING) + " profile.");
 		} else if (standaloneActive) {
-			System.out.println(
-					"The default 'standalone' profile is active because no other profiles have been specified or "
-							+ "you specified the default profile explicitly. If you specified "
-							+ "a different active profile in application.yml file it it will be activated instead of default.");
+			System.out.println("Activating " +
+					"the default standalone profile.");
 		} else {
 			throw new IllegalStateException(
 					"Unknown profiles specified. Please specify one of default, staging or production.");
