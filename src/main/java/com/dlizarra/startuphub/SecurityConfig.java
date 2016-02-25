@@ -41,8 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.anyRequest()
 			.permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll().and()
+				.authorizeRequests().antMatchers("/console/**").permitAll();
 
-		// http.authorizeRequests().anyRequest().fullyAuthenticated().and().httpBasic().and().csrf().disable();
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
 	}
 
 	@Bean
