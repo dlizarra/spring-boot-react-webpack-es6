@@ -4,11 +4,10 @@ import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import com.dlizarra.startuphub.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -41,33 +40,31 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
+
 		final Project p1 = new Project();
 		p1.setId(1);
 		p1.setName("Project1");
-		p1.setDescription("Description for Project 1");
+		p1.setDescription("Description for Project1");
 		final Project p2 = new Project();
 		p2.setId(2);
 		p2.setName("Project2");
-		p2.setDescription("Description for Project 2");
-		final List<Project> projects = new ArrayList<Project>();
+		p2.setDescription("Description for Project2");
+		final List<Project> projects = new ArrayList<>();
 		projects.add(p1);
 		projects.add(p2);
+		User user1 = new User();
+		user1.setId(1);
+
 		when(projectRepository.findAll(any(Sort.class))).thenReturn(projects);
 		when(projectRepository.findOne(1)).thenReturn(Optional.of(p1));
 		when(projectRepository.findOne(5)).thenReturn(Optional.empty());
 		when(projectRepository.findOne(199)).thenReturn(Optional.of(p1));
-		final Project savedProject = new Project();
-		savedProject.setId(199);
-		savedProject.setName("Project created");
-		savedProject.setDescription("Description for Project created");
-		savedProject.setCreationTime(LocalDateTime.now());
-		when(projectRepository.save(any(Project.class))).thenReturn(savedProject);
-		when(projectRepository.findOne(199)).thenReturn(Optional.of(savedProject));
-
+		when(projectRepository.save(any(Project.class))).thenReturn(p1);
+		when(userRepository.findOne(1)).thenReturn(Optional.of(user1));
 	}
 
 	@Test
-	public void testgetProjects_TwoProjectsInDb_ShouldReturnTwoProjects() {
+	public void testGetProjects_TwoProjectsInDb_ShouldReturnTwoProjects() {
 		// act
 		final List<ProjectDto> projects = projectService.getProjects();
 		// assert
@@ -90,24 +87,22 @@ public class ProjectServiceTest extends AbstractUnitTest {
 
 	@Test
 	public void testCreateProject_ProjectGiven_ShouldSaveProject() {
-		// TODO mock userrepository for creatorId 1, otherwise it's throwing a nullpointer
-
 		// arrange
 		final ProjectDto savedDto = new ProjectDto();
-		savedDto.setName("Project created");
-		savedDto.setDescription("Description for Project created");
+		savedDto.setName("Project1");
+		savedDto.setDescription("Description for Project1");
 		// act
 		final ProjectDto dto = projectService.createProject(savedDto, 1);
 		// assert
-		assertThat(dto.getId()).isEqualTo(199);
+		assertThat(dto.getId()).isEqualTo(1);
 	}
 
-	// @Test
-	// public void testDeleteProject_ValidIdGiven_ShouldDeleteProject(){
-	// // act
-	// projectService.deleteProject(2);
-	// // assert
-	// assertThat()
-	// }
+	 @Test
+	 public void testDeleteProject_ValidIdGiven_ShouldDeleteProject(){
+	 	// act
+	 	projectService.deleteProject(1);
+	 	// assert
+	 	verify(projectRepository).delete(1);
+	 }
 
 }
