@@ -82,8 +82,6 @@
 			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> 
-			<optional>true</optional> </dependency> -->
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
@@ -111,7 +109,7 @@
 					<maxmem>256m</maxmem>
 					<aggregate>true</aggregate>
 					<instrumentation>
-						<!-- Exclude JPA metamodel generated classes -->
+						<!-- Exclude JPA meta-model generated classes -->
 						<ignores>
 							<ignore>**/*_.java</ignore>
 						</ignores>
@@ -119,6 +117,7 @@
 							<exclude>**/*_.class</exclude>
 						</excludes>
 					</instrumentation>
+					<check/>
 				</configuration>
 			</plugin>
 			<!-- Coveralls -->
