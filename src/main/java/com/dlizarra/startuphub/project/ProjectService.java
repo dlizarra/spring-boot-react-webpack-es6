@@ -14,6 +14,6 @@ public interface ProjectService {
 
 	List<ProjectDto> getProjects();
 
-	public void addMember(Integer projectId, Integer userId);
+	void addMember(Integer projectId, Integer userId);
 
 }
