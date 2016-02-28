@@ -1,8 +1,7 @@
 {
-  "name": "frontend",
+  "name": "Startup Hub frontend",
   "version": "1.0.0",
-  "description": "frontend desc",
-  "main": "index.js",
+  "description": "Frontend for Startup Hub REST backend",
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback"
   },
@@ -10,7 +9,11 @@
     "type": "git",
     "url": "git+https://github.com/dlizarra/spring-boot-react-webpack-es6.git"
   },
-  "author": "dlizarra",
+  "author": {
+    "name": "David Lizárraga",
+    "email": "dlizarra5@gmail.com"
+    "url": "http://github.com/dlizarra"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.5.2",
