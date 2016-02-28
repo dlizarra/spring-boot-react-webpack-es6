@@ -31,3 +31,7 @@ log.roo
 
 # PMD
 .pmd
+
+# Node
+src/main/frontend/node_modules
+bundle.js
