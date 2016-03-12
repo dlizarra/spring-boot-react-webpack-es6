@@ -19,7 +19,7 @@ import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import com.dlizarra.startuphub.CustomUserDetails;
+import com.dlizarra.startuphub.support.security.CustomUserDetails;
 import com.dlizarra.startuphub.project.Project;
 import com.dlizarra.startuphub.role.Role;
 

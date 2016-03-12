@@ -1,4 +1,4 @@
-package com.dlizarra.startuphub;
+package com.dlizarra.startuphub.support.security;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

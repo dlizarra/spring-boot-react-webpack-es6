@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../style/style.css'
+
 
 ReactDOM.render(
-	<p>asdfds</p>,
+	<h1 className="testblue">App working</h1>,
 	document.querySelector('.container'));

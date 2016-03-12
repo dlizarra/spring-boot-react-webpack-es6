@@ -1,5 +1,6 @@
-package com.dlizarra.startuphub;
+package com.dlizarra.startuphub.support.security;
 
+import com.dlizarra.startuphub.support.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

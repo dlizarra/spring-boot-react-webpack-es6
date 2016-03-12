@@ -21,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Profile("!test")
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	// public class SecurityConfig {
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 		http

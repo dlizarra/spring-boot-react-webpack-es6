@@ -1,4 +1,4 @@
-package com.dlizarra.startuphub;
+package com.dlizarra.startuphub.support.security;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
