@@ -19,6 +19,17 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 
+
+	@RequestMapping(value = "/projects", method = RequestMethod.GET)
+	public List<ProjectDto> findAll() {
+		return projectService.getProjects();
+	}
+
+	@RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
+	public ProjectDto find(@PathVariable("id") int id) {
+		return projectService.getProject(id);
+	}
+
 	@RequestMapping(value = "/projects", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@Valid @RequestBody final ProjectDto project) {
@@ -35,8 +46,4 @@ public class ProjectController {
 		projectService.updateProject(project);
 	}
 
-	@RequestMapping(value = "/projects", method = RequestMethod.GET)
-	public List<ProjectDto> findAll() {
-		return projectService.getProjects();
-	}
 }

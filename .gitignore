@@ -35,3 +35,6 @@ log.roo
 # Node
 src/main/frontend/node_modules
 bundle.js
+
+# Bootstrap
+src/main/frontend/style/bootstrap
