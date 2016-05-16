@@ -1,0 +1,16 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ProjectList from '../components/ProjectList';
+import { fetchProjects } from '../redux/modules/projects';
+
+const mapStateToProps = (state) => (
+  {
+    projects: state.projects
+  }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({ fetchProjects }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import ProjectList from './ProjectList';
+import Header from '../components/Header';
+import Identicon from '../components/Identicon';
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        <div className="container">
-        <ProjectList /></div>
+        {this.props.children}
       </div>
     );
   }
