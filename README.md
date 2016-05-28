@@ -3,6 +3,6 @@
 [![Coverage Status](https://img.shields.io/coveralls/dlizarra/startup-hub.svg)](https://coveralls.io/github/dlizarra/spring-boot-react-webpack-es6?branch=master) 
 [![Demo](https://img.shields.io/badge/demo-running-brightgreen.svg)](http://startup-hub.herokuapp.com)
 
-Spring Boot and React sandbox app. 
+Spring Boot and React sandbox app.
 
 
