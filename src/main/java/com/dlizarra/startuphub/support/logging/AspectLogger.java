@@ -30,7 +30,7 @@ public class AspectLogger {
         message.append(commaJoiner.join(joinPoint.getArgs()));
         message.append(")");
 
-        log.debug(message.toString());
+        //log.debug(message.toString());
     }
 
 
@@ -55,7 +55,7 @@ public class AspectLogger {
         message.append(stopWatch.getTotalTimeMillis());
         message.append(" ms");
 
-        log.debug(message.toString());
+        //log.debug(message.toString());
 
         return retVal;
     }
