@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.dlizarra.startuphub.support.logging.AspectLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +22,14 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 
+	private static final Logger log = LoggerFactory.getLogger(AspectLogger.class);
+
 
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public List<ProjectDto> findAll() {
+		log.info("INFOOOOOO");
+		log.debug("debuggggggggggggggg");
+		log.error("errorrrrrrrrrrrrrrr");
 		return projectService.getProjects();
 	}
 
