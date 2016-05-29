@@ -27,10 +27,6 @@ public class ProjectController {
 
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public List<ProjectDto> findAll() {
-		System.out.println("println");
-		log.info("INFOOOOOO");
-		log.debug("debuggggggggggggggg");
-		log.error("errorrrrrrrrrrrrrrr");
 		return projectService.getProjects();
 	}
 

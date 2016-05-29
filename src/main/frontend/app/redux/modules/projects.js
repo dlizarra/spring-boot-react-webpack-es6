@@ -41,7 +41,7 @@ const receiveProjects = (json) => (
 export function fetchProjects() {
   return dispatch => {
     dispatch(requestProjects());
-    return fetch('http://localhost:8080/projects')
+    return fetch('/projects')
       .then(response => response.json())
       .then(json => dispatch(receiveProjects(json)));
   };
