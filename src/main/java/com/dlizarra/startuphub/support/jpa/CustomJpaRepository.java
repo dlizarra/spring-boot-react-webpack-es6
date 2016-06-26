@@ -17,7 +17,7 @@ public interface CustomJpaRepository<T, ID extends Serializable> extends CustomC
 	/**
 	 * Returns all instances of the type sorted by the type.
 	 * 
-	 * @param A {@link Sort} object applied to the returned elements list.
+	 * @param sort {@link Sort} object applied to the returned elements list.
 	 * @return ordered list
 	 */
 	List<T> findAll(Sort sort);
@@ -25,24 +25,10 @@ public interface CustomJpaRepository<T, ID extends Serializable> extends CustomC
 	/**
 	 * Returns a {@link Page} of entities meeting the paging restriction provided in the {@code Pageable} object.
 	 * 
-	 * @param pageable
+	 * @param pageable object for pagination information.
 	 * @return a page of entities
 	 */
 	Page<T> findAll(Pageable pageable);
-
-	/**
-	 * Returns all instances of the type.
-	 * 
-	 * @return
-	 */
-	@Override
-	List<T> findAll();
-
-	@Override
-	List<T> findAll(Iterable<ID> ids);
-
-	@Override
-	<S extends T> List<S> save(Iterable<S> entities);
 
 	/**
 	 * Flushes all pending changes to the database.
